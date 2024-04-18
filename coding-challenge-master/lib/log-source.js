@@ -34,6 +34,7 @@ module.exports = class LogSource {
   pop() {
     this.last = this.getNextPseudoRandomEntry();
     if (this.last.date > new Date()) {
+      // synchronous
       this.drained = true;
     }
     return this.drained ? false : this.last;
@@ -42,8 +43,11 @@ module.exports = class LogSource {
   popAsync() {
     this.last = this.getNextPseudoRandomEntry();
     if (this.last.date > Date.now()) {
+      // asynchronous
       this.drained = true;
     }
     return P.delay(_.random(8)).then(() => (this.drained ? false : this.last));
   }
 };
+
+console.log("test");

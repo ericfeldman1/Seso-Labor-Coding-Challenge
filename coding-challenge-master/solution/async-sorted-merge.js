@@ -4,6 +4,6 @@
 
 module.exports = (logSources, printer) => {
   return new Promise((resolve, reject) => {
-    resolve(console.log("Async sort complete."));
+    resolve(console.log(logSources.length));
   });
 };
