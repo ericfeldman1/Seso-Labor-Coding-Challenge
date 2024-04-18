@@ -4,5 +4,5 @@
 
 module.exports = (logSources, printer) => {
   logSources.sort((a, b) => a.last.date - b.last.date);
-  return console.log(logSources[0]);
+  return console.log(logSources);
 };
